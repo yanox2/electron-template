@@ -1,14 +1,14 @@
-/* Copyright 2024 dodat */
+/* Copyright 2025 dodat */
 /*---------------------------------------------------------------------------*
  * Main
  *      メイン
  *---------------------------------------------------------------------------*/
 import { app, session } from "electron";
 import type AppBase from "./cmn/AppBase.mjs";
-import ExApp from "./ExApp.mjs";
+import MyApp from "./MyApp.mjs";
 
 const main = async () => {
-	const appBase: AppBase = new ExApp();
+	const appBase: AppBase = new MyApp();
 	await appBase.init();
 };
 

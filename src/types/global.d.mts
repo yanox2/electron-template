@@ -1,14 +1,12 @@
-/* Copyright 2024 dodat */
+/* Copyright 2025 dodat */
 /*---------------------------------------------------------------------------*
  * Global ambient declare
  *      グローバル宣言
  *---------------------------------------------------------------------------*/
 
 declare global{
-	// windowオブジェクトの型拡張
 	interface Window{
-		browserNo: number;
-		AABridge:{
+		MyBridge:{
 			testSend: (no: number) => Promise<string>;
 		};
 	}

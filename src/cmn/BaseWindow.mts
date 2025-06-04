@@ -1,4 +1,4 @@
-/* Copyright 2024 dodat */
+/* Copyright 2025 dodat */
 /*---------------------------------------------------------------------------*
  * Class - BaseWindow
  *      ウィンドウ基底クラス
@@ -8,13 +8,11 @@ import path from "path";
 import type { Coord, CloseListener } from "../types/types.mjs";
 import Exception from "../cmn/Exception.mjs";
 import AppBase from "./AppBase.mjs";
-//import Puppeteer from "../Puppeteer.mjs";
 
 abstract class BaseWindow{
 	protected abstract myInit(crrtDir: string): Promise<void>;
 
 	protected win?: BrowserWindow;
-	//protected myPage: Puppeteer = new Puppeteer(); // BrowserWindowの画面制御にpuppeteerを利用
 	private static Win__: BrowserWindow;
 
 /*---------------------------------------------------------------------------*
@@ -43,7 +41,6 @@ abstract class BaseWindow{
 		this.UIhandler();
 		const mainHtml: string = path.join(AppBase.dirname, loadFile);
 		await this.win.loadFile(mainHtml);
-		//await this.myPage.getMyPage();
 		this.myInit(AppBase.dirname);
 	}
 
@@ -83,7 +80,7 @@ abstract class BaseWindow{
 		return coord;
 	}
 
-	public static message(type: number, message: string, title?: string){
+	public static alert(type: number, message: string, title?: string){
 		let val: "none" | "info" | "error" | "question" | "warning" = "none";
 		if(type == 1) val = "error";
 		dialog.showMessageBoxSync(BaseWindow.Win__, {

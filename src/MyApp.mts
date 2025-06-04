@@ -1,4 +1,4 @@
-/* Copyright 2024 dodat */
+/* Copyright 2025 dodat */
 /*---------------------------------------------------------------------------*
  * Class - Example
  *      製品クラス
@@ -7,16 +7,16 @@ import type { Coord, Settings } from "./types/types.mjs";
 import Exception from "./cmn/Exception.mjs";
 import AppBase from "./cmn/AppBase.mjs";
 import type BaseWindow from "./cmn/BaseWindow.mjs";
-import ExWindow from "./ExWindow.mjs";
+import MyWindow from "./MyWindow.mjs";
 
-class ExApp extends AppBase{
+class MyApp extends AppBase{
 
 /*---------------------------------------------------------------------------*
  * implements abstract AppBase
  *---------------------------------------------------------------------------*/
 	protected async myInit(){
 		Exception.setLevel(1);
-		const win: BaseWindow = new ExWindow();
+		const win: BaseWindow = new MyWindow();
 		await win.init("main.html", "ipc/preload.cjs", this);
 		//await win.init("main.html", undefined, this);
 		//await win.init("main.html");
@@ -27,4 +27,4 @@ class ExApp extends AppBase{
 		return {"mode":1, "mainWinCoord":coord};
 	}
 }
-export default ExApp;
+export default MyApp;
