@@ -1,24 +1,32 @@
-# Compiled class file
-*.class
+# node_modules: 依存ライブラリ
+node_modules/
 
-# Log file
+# 出力ディレクトリ（tsconfig.json の "outDir" に一致）
+dist/*.mjs
+dist/*.cjs
+build/
+
+# TypeScript キャッシュ
+*.tsbuildinfo
+
+# ログファイル
 *.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
 
-# BlueJ files
-*.ctxt
+# OS／エディタ依存ファイル
+.DS_Store
+Thumbs.db
 
-# Mobile Tools for Java (J2ME)
-.mtj.tmp/
+# VSCode 設定
+.vscode/
+*.code-workspace
 
-# Package Files #
-*.jar
-*.war
-*.nar
-*.ear
-*.zip
-*.tar.gz
-*.rar
+# 環境変数ファイル（必要に応じて）
+.env
+.env.*
 
-# virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
-hs_err_pid*
-replay_pid*
+# その他のキャッシュや出力
+.cache/
+coverage/
