@@ -167,7 +167,7 @@ Specifies the window title.
 Specifies the size and position of the window.
 It is defined by the `Coord` interface, structured as follows:
 
-```json
+```typescript
 export interface Coord{
 	width: number;
 	height: number;

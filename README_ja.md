@@ -167,7 +167,7 @@ public static createWindow(title: string = "MainWindow", coord?: Coord, preload?
 ウィンドウのサイズおよび位置を指定するオブジェクトです。
 `Coord` インターフェースで定義されており、以下のような構造を持ちます：
 
-```json
+```typescript
 export interface Coord{
 	width: number;
 	height: number;
