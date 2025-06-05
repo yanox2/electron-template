@@ -36,7 +36,7 @@ npm run tsc
 npm run start
 ```
 
-![app window](./images/001.png)
+<img src="./images/001.png" alt="app window" width="400">
 
 初期状態では、メニューも自動的に表示されます（※機能は未実装です）。
 
@@ -44,7 +44,7 @@ npm run start
 
 ### 自身のアプリケーションの実装方法
 
-### `MyApp.mts` の初期化
+### `MyApp.mts` の初期化メソッド
 
 まず、`MyApp.mts` の初期化メソッドを実装します：
 
@@ -104,7 +104,7 @@ const main = async () => {
 };
 ```
 
-### `MyWindow.mts` の初期化
+### `MyWindow.mts` の初期化メソッド
 
 次に `MyWindow.mts` の初期化メソッドを実装します。
 

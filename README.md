@@ -44,7 +44,7 @@ A default menu is also displayed automatically (note: the menu does not perform 
 
 ### Implementing Your Application
 
-### Initializing `MyApp.mts`
+### Initializing method from `MyApp.mts`
 
 First, implement the initialization method in `MyApp.mts`:
 
@@ -104,7 +104,7 @@ const main = async () => {
 };
 ```
 
-### Initializing `MyWindow.mts`
+### Initializing method from `MyWindow.mts`
 
 Next, implement the initialization method in `MyWindow.mts`:
 
