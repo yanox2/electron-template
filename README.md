@@ -10,10 +10,11 @@ It allows you to create windows and menus easily through function calls and meth
 
 The template includes the following features by default:
 
-- A configuration file that saves window size and position on exit, and restores them on the next launch
-- A preload script for communication between the renderer and main processes
-- A custom exception class
-- A file handling utility class
+- configuration file that saves window size and position on exit, and restores them on the next launch
+- preload script for communication between the renderer and main processes
+- custom exception class
+- file handling utility class
+- message dialogs
 
 ## Installation
 
@@ -35,7 +36,7 @@ To launch the application without any modifications (a default window will appea
 npm run start
 ```
 
-![app window](./images/001.png)
+<img src="./images/001.png" alt="app window" width="400">
 
 A default menu is also displayed automatically (note: the menu does not perform any actions).
 
@@ -61,7 +62,7 @@ protected async myInit(){
 The `init()` method of the `BaseWindow` class initializes the Electron application and creates a window:
 
 ```typescript
-public async init(loadFile: string, preloadFile?: string, lis?: CloseListener)
+public async init(loadFile: string, preloadFile?: string, lis?: CloseListener): void
 ```
 
 #### `loadFile`
@@ -119,7 +120,94 @@ You can expand upon this to implement your application's logic.
 
 ## Notes
 
-※ Add any additional notes here as needed.
+### Communication with the Main Process
+
+When the button in the window is clicked, a communication event is triggered to the main process.  
+By default, the event handler is implemented in `cmn/BaseWindow.mts`.  
+You can override this method if needed.
+
+```typescript
+// File: src/cmn/BaseWindow.mts
+protected UIhandler(){
+	ipcMain.handle("testSend", async (e, no: number) => {
+		Exception.log(no);
+		return "test" + no;
+	});
+}
+ ```
+
+The click event is detected on the renderer process side in `ipc/renderer.mts`:
+
+```typescript
+// File: src/ipc/renderer.mts
+window.addEventListener("load", function () {
+    let btnEle = document.getElementById("testSend");
+    if (btnEle) {
+        btnEle.addEventListener("click", function () {
+            window.MyBridge.testSend(10).then((msg) => {
+                console.log(msg);
+            });
+        });
+    }
+});
+```
+
+### Window Creation
+
+To create a subwindow, simply call the `createWindow()` method from `cmn/BaseWindow.mts`.
+
+```typescript
+public static createWindow(title: string = "MainWindow", coord?: Coord, preload?: string): BrowserWindow
+```
+
+#### title
+Specifies the window title.
+
+#### coord
+Specifies the size and position of the window.
+It is defined by the `Coord` interface, structured as follows:
+
+```json
+export interface Coord{
+	width: number;
+	height: number;
+	x: number;
+	y: number;
+}
+```
+If not needed, you can omit this argument or pass `undefined`.
+
+#### preload
+Specifies the preload script.
+This parameter is optional if not required.
+
+### Message Dialogs
+
+To display a message dialog, use the following method in `cmn/BaseWindow.mts`:
+
+```typescript
+public static alert(type: number, message: string, title?: string): void
+```
+
+#### type
+Specifies the message type.
+If `1` is specified, it will be treated as an error message.
+Other values will be treated as normal messages.
+
+#### message
+The main content of the message to display.
+
+#### title
+The title of the dialog (optional).
+
+To display a confirmation dialog, use the following method:
+
+```typescript
+public static confirm(message: string): boolean
+```
+
+#### message
+The message content to display in the confirmation dialog.
 
 ## License
 
