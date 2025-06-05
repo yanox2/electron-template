@@ -211,6 +211,4 @@ The message content to display in the confirmation dialog.
 
 ## License
 
-This project is licensed under the MIT License, with the Commons Clause restriction.
-
 See [LICENSE](./LICENSE) for details.

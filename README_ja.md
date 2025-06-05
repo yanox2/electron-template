@@ -209,6 +209,4 @@ public static confirm(message: string): boolean
 
 ## License
 
-This project is licensed under the MIT License, with the Commons Clause restriction.
-
 See [LICENSE](./LICENSE) for details.
