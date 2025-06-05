@@ -140,15 +140,15 @@ The click event is detected on the renderer process side in `ipc/renderer.mts`:
 
 ```typescript
 // File: src/ipc/renderer.mts
-window.addEventListener("load", function () {
-    let btnEle = document.getElementById("testSend");
-    if (btnEle) {
-        btnEle.addEventListener("click", function () {
-            window.MyBridge.testSend(10).then((msg) => {
-                console.log(msg);
-            });
-        });
-    }
+window.addEventListener("load", function(){
+	let btnEle = document.getElementById("testSend");
+	if(btnEle){
+		btnEle.addEventListener("click", function(){
+			window.MyBridge.testSend(10).then((msg) => {
+				console.log(msg);
+			});
+		});
+	}
 });
 ```
 
