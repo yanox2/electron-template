@@ -160,10 +160,10 @@ window.addEventListener("load", function(){
 public static createWindow(title: string = "MainWindow", coord?: Coord, preload?: string): BrowserWindow
 ```
 
-#### title
+#### `title`
 ウィンドウのタイトルを指定します。
 
-#### coord
+#### `coord`
 ウィンドウのサイズおよび位置を指定するオブジェクトです。
 `Coord` インターフェースで定義されており、以下のような構造を持ちます：
 
@@ -177,7 +177,7 @@ export interface Coord{
 ```
 不要な場合は、引数を省略するか `undefined` を指定します。
 
-#### preload
+#### `preload`
 プリロードスクリプトを指定します。  
 不要な場合は省略可能です。
 
@@ -189,22 +189,23 @@ export interface Coord{
 public static alert(type: number, message: string, title?: string): void
 ```
 
-#### type
-メッセージの種類を指定します。
-`1` を指定するとエラーメッセージ、それ以外は通常メッセージになります。
+#### `type`
+メッセージの種類を指定します。`1` を指定するとエラーメッセージ、それ以外は通常メッセージになります。
 
-#### message
+#### `message`
 表示するメッセージの本文。
 
-#### title
+#### `title`
 ダイアログのタイトル（省略可能）。
 
+
 確認ダイアログを表示するには、次のメソッドを使用します：
+
 ```typescript
 public static confirm(message: string): boolean
 ```
 
-#### message
+#### `message`
 確認ダイアログに表示するメッセージ本文。
 
 ## License

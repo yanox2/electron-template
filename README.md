@@ -160,10 +160,10 @@ To create a subwindow, simply call the `createWindow()` method from `cmn/BaseWin
 public static createWindow(title: string = "MainWindow", coord?: Coord, preload?: string): BrowserWindow
 ```
 
-#### title
+#### `title`
 Specifies the window title.
 
-#### coord
+#### `coord`
 Specifies the size and position of the window.
 It is defined by the `Coord` interface, structured as follows:
 
@@ -177,7 +177,7 @@ export interface Coord{
 ```
 If not needed, you can omit this argument or pass `undefined`.
 
-#### preload
+#### `preload`
 Specifies the preload script.
 This parameter is optional if not required.
 
@@ -189,16 +189,16 @@ To display a message dialog, use the following method in `cmn/BaseWindow.mts`:
 public static alert(type: number, message: string, title?: string): void
 ```
 
-#### type
-Specifies the message type.
-If `1` is specified, it will be treated as an error message.
+#### `type`
+Specifies the message type.If `1` is specified, it will be treated as an error message.
 Other values will be treated as normal messages.
 
-#### message
+#### `message`
 The main content of the message to display.
 
-#### title
+#### `title`
 The title of the dialog (optional).
+
 
 To display a confirmation dialog, use the following method:
 
@@ -206,7 +206,7 @@ To display a confirmation dialog, use the following method:
 public static confirm(message: string): boolean
 ```
 
-#### message
+#### `message`
 The message content to display in the confirmation dialog.
 
 ## License
