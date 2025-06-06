@@ -72,7 +72,6 @@ By default, it loads `dist/main.html`.
 #### `preloadFile`
 Specifies the preload script.
 The default preload script defines a communication bridge between the main and renderer processes.
-If you don't need a preload script, you can omit this argument or pass `undefined`.
 
 ```typescript
 // File: src/ipc/preload.cts
@@ -80,6 +79,9 @@ contextBridge.exposeInMainWorld("MyBridge", {
 	testSend: (no: number) => ipcRenderer.invoke("testSend", no),
 });
 ```
+
+If you don't need a preload script, you can omit this argument or pass `undefined`.
+
 > **Note**
 >  The preload script must be written in [CommonJS format](https://blog.softwarenote.info/p4891/).
 
@@ -190,7 +192,8 @@ public static alert(type: number, message: string, title?: string): void
 ```
 
 #### `type`
-Specifies the message type.If `1` is specified, it will be treated as an error message.
+Specifies the message type.
+If `1` is specified, it will be treated as an error message.
 Other values will be treated as normal messages.
 
 #### `message`

@@ -38,7 +38,7 @@ npm run start
 
 <img src="./images/001.png" alt="app window" width="400">
 
-初期状態では、メニューも自動的に表示されます（※機能は未実装です）。
+初期状態では、あらかじめ設定されたメニュー項目が表示されます（※機能は未実装です）。
 
 ![menu](./images/002.png)
 
@@ -71,8 +71,7 @@ public async init(loadFile: string, preloadFile?: string, lis?: CloseListener): 
 
 #### `preloadFile`
 プリロードスクリプトを指定します。  
-デフォルトのプリロードスクリプトでは、メインプロセスとレンダラープロセスの通信ブリッジを定義しています。  
-プリロードが不要な場合は、引数を省略するか `undefined` を指定します。
+デフォルトのプリロードスクリプトでは、メインプロセスとレンダラプロセスの通信ブリッジを定義しています。  
 
 ```typescript
 // File: src/ipc/preload.cts
@@ -80,6 +79,9 @@ contextBridge.exposeInMainWorld("MyBridge", {
 	testSend: (no: number) => ipcRenderer.invoke("testSend", no),
 });
 ```
+
+プリロードが不要な場合は、引数を省略するか `undefined` を指定します。
+
 > **注意**
 >  プリロードスクリプトは [CommonJS 形式で記述する必要があります](https://blog.softwarenote.info/p4891/)。
 
@@ -92,7 +94,7 @@ contextBridge.exposeInMainWorld("MyBridge", {
 ### `main.mts` のエントリーポイント
 
 `MyApp` クラスは `main.mts` から呼び出されています。  
-クラス名を変更したい場合は `main.mts` を編集してください。
+`MyApp` のクラス名を変更したい場合は `main.mts` を編集してください。
 
 ```typesciprt
 // File: src/main.mts
@@ -175,6 +177,7 @@ export interface Coord{
 	y: number;
 }
 ```
+
 不要な場合は、引数を省略するか `undefined` を指定します。
 
 #### `preload`
@@ -190,7 +193,8 @@ public static alert(type: number, message: string, title?: string): void
 ```
 
 #### `type`
-メッセージの種類を指定します。`1` を指定するとエラーメッセージ、それ以外は通常メッセージになります。
+メッセージの種類を指定します。
+`1` を指定するとエラーメッセージ、それ以外は通常メッセージになります。
 
 #### `message`
 表示するメッセージの本文。
