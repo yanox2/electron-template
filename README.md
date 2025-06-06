@@ -10,11 +10,12 @@ It allows you to create windows and menus easily through function calls and meth
 
 The template includes the following features by default:
 
-- configuration file that saves window size and position on exit, and restores them on the next launch
+- App window generation
 - preload script for communication between the renderer and main processes
-- custom exception class
+- configuration file that saves window size and position on exit, and restores them on the next launch
 - file handling utility class
 - message dialogs
+- custom exception class
 
 ## Installation
 
@@ -38,7 +39,7 @@ npm run start
 
 <img src="./images/001.png" alt="app window" width="400">
 
-A default menu is also displayed automatically (note: the menu does not perform any actions).
+In the initial state, pre-set menu items are displayed (note: the menu does not perform any actions).
 
 ![menu](./images/002.png)
 
